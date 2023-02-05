@@ -11,10 +11,6 @@ on:
 
 jobs:
   build:
-    defaults:
-      run:
-        working-directory: apps/web
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,23 +26,28 @@ jobs:
           yarn install
           yarn build
 
+      - name: Cleanup web cache
+        working-directory: apps/web
+        run: |
+          rm -rf .next/cache
+          rm -rf node_modules
+          cp -r ../../node_modules .
+          echo 'Post copy'
+          ls -alh
+
       - name: Zip artifact
         run: |
           du -sh
-          du -sh .next
           du -sh node_modules
           ls -alh
           ls -alh node_modules
-          zip -qr web.zip .
-          echo
-          echo 'Zipping done'
-          ls -alh
+          zip -qr app.zip .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: apps/web/web.zip
+          path: app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -64,8 +65,8 @@ jobs:
       - name: Unzip artifact
         run: |
           ls -alh
-          unzip -qo web.zip
-          rm web.zip
+          unzip -qo app.zip
+          rm app.zip
           ls -alh
           du -sh
 
