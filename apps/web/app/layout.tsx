@@ -1,7 +1,7 @@
 import './globals.css'
 
-import { MuiTheme } from '@hms/ui'
 import { ReactNode } from 'react'
+import { MuiTheme } from 'ui'
 
 import { ReduxProvider } from '~/src/app/components/ReduxProvider'
 

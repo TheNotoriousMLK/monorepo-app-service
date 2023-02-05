@@ -11,11 +11,11 @@
     "lint:styles": "stylelint --aei --fix **/*.{css,scss}",
     "lint:ts": "next lint",
     "lint": "yarn lint:ts && yarn lint:styles",
-    "start": "node ./server.js"
+    "start": "yarn start -p $PORT"
   },
   "dependencies": {
-    "@hms/ui": "*",
-    "@hms/utils": "*",
+    "ui": "*",
+    "utils": "*",
     "@mui/icons-material": "^5.10.15",
     "@mui/lab": "^5.0.0-alpha.109",
     "@mui/material": "^5.10.15",

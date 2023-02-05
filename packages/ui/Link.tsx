@@ -29,17 +29,17 @@ export const NextLinkComposed = React.forwardRef<
 
   return (
     <NextLink
-      href={to}
-      prefetch={prefetch}
+      ref={ref}
+      passHref
       as={linkAs}
+      href={to}
+      locale={locale}
+      prefetch={prefetch}
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      passHref
-      locale={locale}
-      ref={ref}
       {...other}
-    ></NextLink>
+    />
   )
 })
 
@@ -84,10 +84,10 @@ export const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
 
     if (isExternal) {
       if (noLinkStyle) {
-        return <Anchor className={className} href={href} ref={ref} {...other} />
+        return <Anchor ref={ref} className={className} href={href} {...other} />
       }
 
-      return <MuiLink className={className} href={href} ref={ref} {...other} />
+      return <MuiLink ref={ref} className={className} href={href} {...other} />
     }
 
     const linkAs = linkAsProp || as
@@ -104,8 +104,8 @@ export const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
     if (noLinkStyle) {
       return (
         <NextLinkComposed
-          className={className}
           ref={ref}
+          className={className}
           {...nextjsProps}
           {...other}
         />
@@ -114,9 +114,9 @@ export const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
 
     return (
       <MuiLink
-        component={NextLinkComposed}
-        className={className}
         ref={ref}
+        className={className}
+        component={NextLinkComposed}
         {...nextjsProps}
         {...other}
       />

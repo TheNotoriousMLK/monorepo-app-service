@@ -2,8 +2,8 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    transpilePackages: ['@hms/ui'],
   },
+  transpilePackages: ['ui', 'utils'],
 }
 
 module.exports = nextConfig

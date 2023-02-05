@@ -37,9 +37,9 @@ export const EmotionRegistry = ({ children }: PropsWithChildren) => {
 
     return (
       <style
+        dangerouslySetInnerHTML={{ __html: styles }}
         key={Date.now() + Math.random() * 1000}
         data-emotion={`${cache.key} ${names.join(' ')}`}
-        dangerouslySetInnerHTML={{ __html: styles }}
       />
     )
   })

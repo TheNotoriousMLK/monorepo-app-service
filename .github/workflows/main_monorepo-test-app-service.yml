@@ -40,7 +40,6 @@ jobs:
           du -sh
           du -sh node_modules
           ls -alh
-          ls -alh node_modules
           zip -qr app.zip .
 
       - name: Upload artifact for deployment job

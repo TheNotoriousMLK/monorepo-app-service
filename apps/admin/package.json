@@ -14,8 +14,8 @@
     "start": "next start -p 3001"
   },
   "dependencies": {
-    "@hms/ui": "*",
-    "@hms/utils": "*",
+    "ui": "*",
+    "utils": "*",
     "@mui/icons-material": "^5.10.15",
     "@mui/lab": "^5.0.0-alpha.109",
     "@mui/material": "^5.10.15",
