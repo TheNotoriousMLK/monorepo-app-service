@@ -11,7 +11,7 @@
     "lint:styles": "stylelint --aei --fix **/*.{css,scss}",
     "lint:ts": "next lint",
     "lint": "yarn lint:ts && yarn lint:styles",
-    "start": "next start -p 8080"
+    "start": "node ./server.js"
   },
   "dependencies": {
     "@hms/ui": "*",
@@ -26,6 +26,7 @@
     "@types/react-dom": "^18.0.9",
     "cypress": "^11.2.0",
     "eslint-config-custom": "*",
+    "express": "^4.18.2",
     "framer-motion": "^7.6.12",
     "next": "^13.0.5",
     "next-seo": "^5.14.1",

@@ -19,5 +19,5 @@
       "dependsOn": ["build"]
     }
   },
-  "globalEnv": ["NEXT_PUBLIC_URL", "NODE_ENV", "PWD"]
+  "globalEnv": ["NEXT_PUBLIC_URL", "NODE_ENV", "PWD", "PORT"]
 }
