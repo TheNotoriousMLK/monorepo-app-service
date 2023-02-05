@@ -1,0 +1,15 @@
+{
+  "name": "@hms/utils",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"**/*.ts\""
+  },
+  "dependencies": {
+    "eslint-config-custom": "*",
+    "loglevel": "^1.8.1",
+    "tsconfig": "*"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**"]
+    },
+    "dev": {
+      "cache": false
+    },
+    "lint": {},
+    "start": {
+      "dependsOn": ["build"]
+    },
+    "cypress": {
+      "cache": false
+    },
+    "cypress:run": {},
+    "cypress:e2e": {
+      "dependsOn": ["build"]
+    }
+  },
+  "globalEnv": ["NEXT_PUBLIC_URL", "NODE_ENV", "PWD"]
+}
