@@ -34,6 +34,7 @@ jobs:
           cp -r ../../node_modules .
           echo 'Post copy'
           ls -alh
+          ls -alh node_modules
 
       - name: Zip artifact
         run: |
@@ -67,6 +68,7 @@ jobs:
           unzip -qo app.zip
           rm app.zip
           ls -alh
+          ls -alh node_modules/tsconfig
           du -sh
 
       - name: "Deploy to Azure Web App"

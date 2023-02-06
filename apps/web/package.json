@@ -11,7 +11,7 @@
     "lint:styles": "stylelint --aei --fix **/*.{css,scss}",
     "lint:ts": "next lint",
     "lint": "yarn lint:ts && yarn lint:styles",
-    "start": "ls -alh && node ./server.js"
+    "start": "ls -alh node_modules && node ./server.js"
   },
   "dependencies": {
     "ui": "*",
