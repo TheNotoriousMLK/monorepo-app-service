@@ -26,8 +26,18 @@ jobs:
           yarn install
           yarn build
 
-      - name: Cleanup web cache
+      - name: Cleanup web cache apps/web
         working-directory: apps/web
+        run: |
+          rm -rf .next/cache
+          rm -rf node_modules
+          cp -r ../../node_modules .
+          echo 'Post copy'
+          ls -alh
+          ls -alh node_modules
+
+      - name: Cleanup web cache apps/admin
+        working-directory: apps/admin
         run: |
           rm -rf .next/cache
           rm -rf node_modules
@@ -38,10 +48,11 @@ jobs:
 
       - name: Zip artifact
         run: |
-          du -sh
           du -sh node_modules
+          rm -rf node_modules
+          du -sh
           ls -alh
-          zip -qr app.zip .
+          7z a app.zip -xr'!.git*'
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -65,10 +76,10 @@ jobs:
       - name: Unzip artifact
         run: |
           ls -alh
-          unzip -qo app.zip
-          rm app.zip
-          ls -alh
-          ls -alh node_modules/tsconfig
+          # unzip -qo app.zip
+          # rm app.zip
+          # ls -alh
+          # ls -alh node_modules/tsconfig
           du -sh
 
       - name: "Deploy to Azure Web App"
@@ -78,4 +89,4 @@ jobs:
           app-name: "monorepo-test-app-service"
           slot-name: "Production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_33F4AD259C204ADD883CAC32724964AB }}
-          package: .
+          package: app.zip
