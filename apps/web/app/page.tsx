@@ -18,7 +18,7 @@ export default function Home() {
           Hello World
         </AppLink>
 
-        <Button variant="outlined">Click Me</Button>
+        <Button variant="outlined">Click Me More</Button>
 
         <p className={styles.description}>
           Get started by editing{' '}
